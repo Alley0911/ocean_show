@@ -1,18 +1,36 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <!-- 顶部横幅 -->
+    <Banner />
+    <!-- 顶部产品类型导航 -->
+    <Nav />
+    <!-- 产品导航 -->
+    <ProductNav/>
+    <!-- 右侧内容区 -->
+    <Exhibition/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Banner from "@/components/Banner.vue";
+import Nav from "@/components/Nav/Nav.vue";
+import Exhibition from "@/components/Exhibition/Exhibition.vue";
+import ProductNav from "@/components/ProductNav.vue";
 
 export default {
-  name: 'home',
+  name: "Home",
   components: {
-    HelloWorld
-  }
-}
+    Banner,
+    Nav,
+    ProductNav,
+    Exhibition,
+  },
+  beforeCreate() {
+    this.$store.dispatch("initialData");
+  },
+};
 </script>
+
+<style scoped>
+</style>
